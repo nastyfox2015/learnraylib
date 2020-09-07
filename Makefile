@@ -6,6 +6,14 @@ LDFLAGS = -Wl,-subsystem=gui
 LDLIBS = -lmsvcrt -lraylib -lopengl32 -lgdi32 -lkernel32 -lshell32 -luser32 -lwinmm
 PLATFORM = PLATFORM_DESKTOP
 
+ALLSRC = \
+	core_basic_window \
+	core_custom_logging
+
+SRC = core_basic_window
+
+all: $(SRC)
+
 %: %.c
 	$(CC) -o $@$(EXT) $< $(CFLAGS) $(INCLUDE_PATHS) $(LDFLAGS) $(LDLIBS) -D$(PLATFORM)
 
